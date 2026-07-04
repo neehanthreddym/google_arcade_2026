@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap - Arcade Community Hub</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
+  <style>
+    .roadmap-week {
+      background: var(--bg-light);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--shadow);
+    }
+    .roadmap-week h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .tag-easy { background: #e6f4ea; color: #137333; }
+    .tag-medium { background: #fef7e0; color: #b06000; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        ☁️ <span>Arcade Community Hub</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="roadmap.html" class="active">Roadmap</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Monthly Roadmap</h1>
+      <p>Stay organized with monthly goals, deadlines, and recommended weekly activities.</p>
+    </div>
+  </header>
+
+  <section class="section section-light">
+    <div class="container" style="max-width: 800px;">
+      
+      <!-- Month Overview -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2>July 2026 Roadmap</h2>
+        <p>This month focuses on getting started and completing beginner-level challenges.</p>
+      </div>
+
+      <!-- Weekly breakdown -->
+      <div class="roadmap-week">
+        <h3>Week 1: Onboarding and Account Setup</h3>
+        <span class="tag tag-easy">Difficulty: Easy</span>
+        <p><strong>Goal:</strong> Successfully create your profile, make it public, and join the community groups.</p>
+        <p><strong>Deadline:</strong> July 7, 2026</p>
+        <div style="margin-top: 1rem;">
+          <a href="get-started.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">View Setup Guide</a>
+        </div>
+      </div>
+
+      <div class="roadmap-week">
+        <h3>Week 2: Beginner Arcade Games</h3>
+        <span class="tag tag-easy">Difficulty: Easy</span>
+        <p><strong>Goal:</strong> Participate in your first Arcade game (e.g., Level 1) and complete simple labs.</p>
+        <p><strong>Deadline:</strong> July 14, 2026</p>
+        <p><em>Reminder: Take screenshots if you encounter any errors!</em></p>
+      </div>
+
+      <div class="roadmap-week">
+        <h3>Week 3: Skill Badge Completion</h3>
+        <span class="tag tag-medium">Difficulty: Medium</span>
+        <p><strong>Goal:</strong> Earn at least one Skill Badge (e.g., Google Cloud Computing Foundations).</p>
+        <p><strong>Deadline:</strong> July 21, 2026</p>
+      </div>
+
+      <div class="roadmap-week">
+        <h3>Week 4: Progress Check & Doubt Clearing</h3>
+        <span class="tag tag-easy">Difficulty: Easy</span>
+        <p><strong>Goal:</strong> Attend the live doubt-clearing session and submit your final progress for the month.</p>
+        <p><strong>Deadline:</strong> July 28, 2026</p>
+      </div>
+
+      <!-- Monthly Milestones -->
+      <div style="background: var(--secondary-color); padding: 2rem; border-radius: var(--border-radius); margin-top: 4rem;">
+        <h2>Monthly Milestones Checklist</h2>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;">✅ Complete 1 Arcade Game</li>
+          <li style="margin-bottom: 0.5rem;">✅ Earn 1 Skill Badge</li>
+          <li style="margin-bottom: 0.5rem;">✅ Complete July Trivia Challenge</li>
+          <li style="margin-bottom: 0.5rem;">✅ Submit Progress Report</li>
+        </ul>
+        <div style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--text-muted);">
+          <em>Participants are encouraged to check their progress weekly and follow official program updates for points, milestones, and reward-related information.</em>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        <strong>Disclaimer:</strong> This is a facilitator-led community website created to support learners participating in the Google Cloud Arcade Facilitator 2026 program. For official rules, dates, eligibility, rewards, and program updates, participants should always refer to official Google Cloud and Google Skills Arcade sources.
+      </div>
+      <p class="footer-copyright">&copy; 2026 Arcade Cloud Community Hub. Maintained by Facilitators.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
