@@ -3,115 +3,222 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roadmap - Arcade Community Hub</title>
+  <title>Monthly Roadmap - Arcade Community Hub</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
-  <style>
-    .roadmap-week {
-      background: var(--bg-light);
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid var(--primary-color);
-      box-shadow: var(--shadow);
-    }
-    .roadmap-week h3 {
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-    .tag {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .tag-easy { background: #e6f4ea; color: #137333; }
-    .tag-medium { background: #fef7e0; color: #b06000; }
-  </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-brand">
-        ☁️ <span class="text-blue">Arcade</span> <span class="text-red" style="margin-left: 6px;">Community</span> <span class="text-yellow" style="margin-left: 6px;">Hub</span>
+        ☁️ <span class="text-gradient">Arcade Hub</span>
       </a>
-      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="get-started.html">Get Started</a></li>
         <li><a href="roadmap.html" class="active">Roadmap</a></li>
+        <li><a href="progress.html">Progress</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="faqs.html">FAQs</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html">Support</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <header class="page-header">
+  <!-- Page Hero -->
+  <header class="page-hero hero-yellow">
     <div class="container">
+      <span class="page-hero-label">July 2026</span>
       <h1>Monthly Roadmap</h1>
-      <p>Stay organized with monthly goals, deadlines, and recommended weekly activities.</p>
+      <p>Follow our structured weekly goals to complete your Arcade games and skill badges efficiently.</p>
     </div>
   </header>
 
+  <!-- Main Content -->
   <section class="section section-light">
-    <div class="container" style="max-width: 800px;">
+    <div class="container-sm">
       
-      <!-- Month Overview -->
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <h2>July 2026 Roadmap</h2>
-        <p>This month focuses on getting started and completing beginner-level challenges.</p>
-      </div>
-
-      <!-- Weekly breakdown -->
-      <div class="roadmap-week">
-        <h3>Week 1: Onboarding and Account Setup</h3>
-        <span class="tag tag-easy">Difficulty: Easy</span>
-        <p><strong>Goal:</strong> Successfully create your profile, make it public, and join the community groups.</p>
-        <p><strong>Deadline:</strong> July 7, 2026</p>
-        <div style="margin-top: 1rem;">
-          <a href="get-started.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">View Setup Guide</a>
+      <!-- Summary Card -->
+      <div class="card" style="margin-bottom: 3rem; background: var(--bg-white);">
+        <div class="roadmap-card-header">
+          <h2 style="margin: 0;">July 2026 Focus</h2>
+          <span class="badge badge-official">Status: Active</span>
+        </div>
+        <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--border-color);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-gray); font-family: 'Fira Code', monospace; margin-bottom: 0.25rem;">Goal</div>
+            <div style="font-weight: 500;">Complete onboarding and beginner-level Arcade activities</div>
+          </div>
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-gray); font-family: 'Fira Code', monospace; margin-bottom: 0.25rem;">Recommended Time</div>
+            <div style="font-weight: 500;">3–5 hours/week</div>
+          </div>
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-gray); font-family: 'Fira Code', monospace; margin-bottom: 0.25rem;">Difficulty</div>
+            <div><span class="badge badge-easy">Beginner</span></div>
+          </div>
+          <div>
+            <div style="font-size: 0.85rem; color: var(--text-gray); font-family: 'Fira Code', monospace; margin-bottom: 0.25rem;">Progress Check</div>
+            <div style="font-weight: 500;">Every Sunday</div>
+          </div>
         </div>
       </div>
 
-      <div class="roadmap-week">
-        <h3>Week 2: Beginner Arcade Games</h3>
-        <span class="tag tag-easy">Difficulty: Easy</span>
-        <p><strong>Goal:</strong> Participate in your first Arcade game (e.g., Level 1) and complete simple labs.</p>
-        <p><strong>Deadline:</strong> July 14, 2026</p>
-        <p><em>Reminder: Take screenshots if you encounter any errors!</em></p>
+      <!-- Weekly Timeline -->
+      <div class="roadmap-timeline">
+        
+        <!-- Week 1 -->
+        <div class="card roadmap-card">
+          <div class="roadmap-card-header">
+            <div>
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem;">Week 1</div>
+              <h3 style="margin-bottom: 0;">Onboarding and Account Setup</h3>
+            </div>
+            <span class="badge badge-easy">Beginner</span>
+          </div>
+          
+          <div style="background: var(--bg-color); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--google-blue);">
+            <strong style="color: var(--text-dark);">Goal:</strong> Create your Skills Boost profile, make it public, and join the community.
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-dark);">Tasks:</strong>
+            <ul style="list-style-type: disc;">
+              <li>Create or sign in to Google Cloud Skills Boost</li>
+              <li>Make profile public</li>
+              <li>Join WhatsApp/Telegram community</li>
+              <li>Submit public profile link</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div style="font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--google-red);">Deadline: July 7, 2026</div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="get-started.html" class="btn btn-secondary">View Setup Guide</a>
+              <a href="progress.html" class="btn btn-primary">Submit Profile</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="card roadmap-card">
+          <div class="roadmap-card-header">
+            <div>
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem;">Week 2</div>
+              <h3 style="margin-bottom: 0;">Beginner Arcade Games</h3>
+            </div>
+            <span class="badge badge-easy">Beginner</span>
+          </div>
+          
+          <div style="background: var(--bg-color); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--google-blue);">
+            <strong style="color: var(--text-dark);">Goal:</strong> Participate in your first Arcade game and complete beginner-friendly labs.
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-dark);">Tasks:</strong>
+            <ul style="list-style-type: disc;">
+              <li>Open the active Arcade game page</li>
+              <li>Complete beginner labs</li>
+              <li>Save screenshots if you encounter errors</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div style="font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--google-red);">Deadline: July 14, 2026</div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="https://go.qwiklabs.com/arcade" target="_blank" class="btn btn-secondary">View Arcade Page</a>
+              <a href="support.html" class="btn btn-outline" style="border: 1px solid var(--border-color); color: var(--text-dark); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); text-decoration: none;">Ask for Help</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="card roadmap-card">
+          <div class="roadmap-card-header">
+            <div>
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem;">Week 3</div>
+              <h3 style="margin-bottom: 0;">Skill Badge Completion</h3>
+            </div>
+            <span class="badge badge-medium">Intermediate</span>
+          </div>
+          
+          <div style="background: var(--bg-color); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--google-blue);">
+            <strong style="color: var(--text-dark);">Goal:</strong> Complete at least one beginner-friendly skill badge.
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-dark);">Tasks:</strong>
+            <ul style="list-style-type: disc;">
+              <li>Choose one recommended skill badge</li>
+              <li>Complete all required labs</li>
+              <li>Verify badge appears on public profile</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div style="font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--google-red);">Deadline: July 21, 2026</div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="resources.html" class="btn btn-secondary">View Resources</a>
+              <a href="progress.html" class="btn btn-primary">Submit Progress</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 4 -->
+        <div class="card roadmap-card">
+          <div class="roadmap-card-header">
+            <div>
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem;">Week 4</div>
+              <h3 style="margin-bottom: 0;">Progress Check and Doubt Clearing</h3>
+            </div>
+            <span class="badge badge-easy">Check-in</span>
+          </div>
+          
+          <div style="background: var(--bg-color); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--google-blue);">
+            <strong style="color: var(--text-dark);">Goal:</strong> Attend the support/check-in session and submit final monthly progress.
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <strong style="display: block; margin-bottom: 0.5rem; color: var(--text-dark);">Tasks:</strong>
+            <ul style="list-style-type: disc;">
+              <li>Review your completed games and badges</li>
+              <li>Submit progress form</li>
+              <li>Ask pending questions</li>
+            </ul>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+            <div style="font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--google-red);">Deadline: July 28, 2026</div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="progress.html" class="btn btn-primary">Submit Progress</a>
+              <a href="support.html" class="btn btn-secondary">Contact Support</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="roadmap-week">
-        <h3>Week 3: Skill Badge Completion</h3>
-        <span class="tag tag-medium">Difficulty: Medium</span>
-        <p><strong>Goal:</strong> Earn at least one Skill Badge (e.g., Google Cloud Computing Foundations).</p>
-        <p><strong>Deadline:</strong> July 21, 2026</p>
-      </div>
-
-      <div class="roadmap-week">
-        <h3>Week 4: Progress Check & Doubt Clearing</h3>
-        <span class="tag tag-easy">Difficulty: Easy</span>
-        <p><strong>Goal:</strong> Attend the live doubt-clearing session and submit your final progress for the month.</p>
-        <p><strong>Deadline:</strong> July 28, 2026</p>
-      </div>
-
-      <!-- Monthly Milestones -->
-      <div style="background: var(--secondary-color); padding: 2rem; border-radius: var(--border-radius); margin-top: 4rem;">
-        <h2>Monthly Milestones Checklist</h2>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;">✅ Complete 1 Arcade Game</li>
-          <li style="margin-bottom: 0.5rem;">✅ Earn 1 Skill Badge</li>
-          <li style="margin-bottom: 0.5rem;">✅ Complete July Trivia Challenge</li>
-          <li style="margin-bottom: 0.5rem;">✅ Submit Progress Report</li>
+      <!-- Checklist & Note -->
+      <div class="card" style="margin-top: 3rem;">
+        <h3 style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check-square" style="color: var(--google-green);"></i> Monthly Checklist</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+          <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check-circle-2" style="color: var(--border-color);"></i> Complete 1 Arcade Game</li>
+          <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check-circle-2" style="color: var(--border-color);"></i> Earn 1 Skill Badge</li>
+          <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check-circle-2" style="color: var(--border-color);"></i> Complete July Trivia Challenge</li>
+          <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check-circle-2" style="color: var(--border-color);"></i> Submit Progress Report</li>
+          <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check-circle-2" style="color: var(--border-color);"></i> Attend/Watch Doubt-Clearing Session</li>
         </ul>
-        <div style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--text-muted);">
-          <em>Participants are encouraged to check their progress weekly and follow official program updates for points, milestones, and reward-related information.</em>
+
+        <div style="margin-top: 2rem; padding: 1rem; background: #fff3e0; border-radius: var(--radius-sm); border: 1px solid #ffe0b2; font-size: 0.9rem; color: #e65100; display: flex; gap: 0.75rem;">
+          <i data-lucide="alert-triangle" style="flex-shrink: 0; width: 20px;"></i>
+          <div>Dates and activities may change based on official program updates. Always verify official program deadlines.</div>
         </div>
       </div>
 
@@ -124,10 +231,49 @@
       <div class="footer-disclaimer">
         <strong>Disclaimer:</strong> This is a facilitator-led community website created to support learners participating in the Google Cloud Arcade Facilitator 2026 program. For official rules, dates, eligibility, rewards, and program updates, participants should always refer to official Google Cloud and Google Skills Arcade sources.
       </div>
-      <p class="footer-copyright">&copy; 2026 Arcade Cloud Community Hub. Maintained by Facilitators.</p>
+      
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Arcade Hub</h4>
+          <p style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1rem;">A community learning space maintained by facilitators.</p>
+          <p style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-gray);">Last updated: July 2026</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="get-started.html">Get Started</a></li>
+            <li><a href="roadmap.html">Monthly Roadmap</a></li>
+            <li><a href="progress.html">Submit Progress</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <ul>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="support.html">Contact Facilitators</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="guidelines.html">Community Guidelines</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Official Links</h4>
+          <ul>
+            <li><a href="https://www.cloudskillsboost.google/" target="_blank">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://go.qwiklabs.com/arcade" target="_blank">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Arcade Cloud Community Hub. Facilitated by Neehanth Reddy Maramreddy and Jashwanth Dasari.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

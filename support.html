@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Arcade Community Hub</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        ☁️ <span class="text-gradient">Arcade Hub</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="get-started.html">Get Started</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="support.html" class="active">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <header class="page-hero hero-red">
+    <div class="container">
+      <span class="page-hero-label">Contact Us</span>
+      <h1>Support & Help</h1>
+      <p>Stuck on a lab or have a question? Our facilitators and community are here to help you get unblocked quickly.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="grid" style="grid-template-columns: 1fr 1.5fr; gap: 3rem;">
+        
+        <!-- Left Column: Support Info -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <div class="card" id="community" style="background: var(--gradient-blue); color: white; border: none;">
+            <h3 style="color: white; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="zap"></i> Fastest Way to Get Help</h3>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem;">Join our community groups for quick support from facilitators and peers.</p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <a href="https://chat.whatsapp.com/CqkoPc8doUv74MNkBmzTaD" target="_blank" class="btn btn-secondary" style="color: #25D366; justify-content: flex-start;">
+                <i data-lucide="message-circle"></i> Join WhatsApp Community
+              </a>
+              <a href="https://t.me/googlearcadeplayers" target="_blank" class="btn btn-secondary" style="color: #0088cc; justify-content: flex-start;">
+                <i data-lucide="send"></i> Join Telegram Community
+              </a>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;"><i data-lucide="check-square" style="color: var(--google-green);"></i> Before Asking for Help</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-gray); font-size: 0.95rem;">
+              <li><i data-lucide="check" style="width: 14px; height: 14px; color: var(--border-color);"></i> Lab or game name</li>
+              <li><i data-lucide="check" style="width: 14px; height: 14px; color: var(--border-color);"></i> Step where you are stuck</li>
+              <li><i data-lucide="check" style="width: 14px; height: 14px; color: var(--border-color);"></i> Screenshot of the error</li>
+              <li><i data-lucide="check" style="width: 14px; height: 14px; color: var(--border-color);"></i> What you already tried</li>
+              <li><i data-lucide="check" style="width: 14px; height: 14px; color: var(--border-color);"></i> Skills Boost profile link, if needed</li>
+            </ul>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;"><i data-lucide="help-circle" style="color: var(--google-blue);"></i> Support Categories</h3>
+            <ul style="padding-left: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
+              <li>Onboarding help</li>
+              <li>Lab issue</li>
+              <li>Skill badge question</li>
+              <li>Progress tracking</li>
+              <li>Community issue</li>
+              <li>Event question</li>
+            </ul>
+          </div>
+
+          <div class="card" style="padding: 1.5rem; background: #f8f9fa;">
+            <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;"><i data-lucide="clock" style="color: var(--google-yellow);"></i> Expected Response</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 0;">Facilitators will try to respond as soon as possible. For official platform issues, participants should also check official Google Cloud Skills Boost support resources.</p>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Support Form -->
+        <div class="card" style="height: fit-content;">
+          <form id="support-form">
+            <h2 style="margin-bottom: 1.5rem;">Submit a Support Request</h2>
+            
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="name" class="form-label">Full Name <span style="color: var(--google-red);">*</span></label>
+                <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="email" class="form-label">Email Address <span style="color: var(--google-red);">*</span></label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.5rem;">
+              <label for="profile-link" class="form-label">Skills Boost Profile Link (If relevant)</label>
+              <input type="url" id="profile-link" name="profile-link" class="form-control" placeholder="https://www.cloudskillsboost.google/public_profiles/...">
+            </div>
+
+            <div class="form-group">
+              <label for="category" class="form-label">Support Category <span style="color: var(--google-red);">*</span></label>
+              <select id="category" name="category" class="form-control" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="onboarding">Onboarding help</option>
+                <option value="lab">Lab issue</option>
+                <option value="badge">Skill badge question</option>
+                <option value="progress">Progress tracking</option>
+                <option value="community">Community issue</option>
+                <option value="event">Event question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message Details <span style="color: var(--google-red);">*</span></label>
+              <textarea id="message" name="message" class="form-control" required placeholder="Please describe your issue in detail. Include lab names and steps where you are stuck."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="screenshot" class="form-label">Screenshot Upload (Optional)</label>
+              <input type="file" id="screenshot" name="screenshot" class="form-control" accept="image/*">
+            </div>
+
+            <div id="support-message" style="display: none; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; background: #e6f4ea; color: #137333; font-weight: 500;">
+              Your support request has been submitted. Please also check the community group for faster help if your issue is urgent.
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Submit Support Request
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        <strong>Disclaimer:</strong> This is a facilitator-led community website created to support learners participating in the Google Cloud Arcade Facilitator 2026 program. For official rules, dates, eligibility, rewards, and program updates, participants should always refer to official Google Cloud and Google Skills Arcade sources.
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Arcade Hub</h4>
+          <p style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1rem;">A community learning space maintained by facilitators.</p>
+          <p style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-gray);">Last updated: July 2026</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="get-started.html">Get Started</a></li>
+            <li><a href="roadmap.html">Monthly Roadmap</a></li>
+            <li><a href="progress.html">Submit Progress</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <ul>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="support.html">Contact Facilitators</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="guidelines.html">Community Guidelines</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Official Links</h4>
+          <ul>
+            <li><a href="https://www.cloudskillsboost.google/" target="_blank">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://go.qwiklabs.com/arcade" target="_blank">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Arcade Cloud Community Hub. Facilitated by Neehanth Reddy Maramreddy and Jashwanth Dasari.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
