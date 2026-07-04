@@ -2,8 +2,12 @@
 
 :root {
   --primary-color: #4285F4; /* Google Blue */
+  --google-blue: #4285F4;
+  --google-red: #EA4335;
+  --google-yellow: #FBBC05;
+  --google-green: #34A853;
   --secondary-color: #E8F0FE; /* Light Blue */
-  --accent-color: #34A853; /* Google Green for success/milestones */
+  --accent-color: var(--google-green); /* Google Green for success/milestones */
   --text-dark: #202124;
   --text-muted: #5F6368;
   --bg-light: #FFFFFF;
@@ -75,9 +79,7 @@ a:hover { text-decoration: underline; }
   gap: 0.5rem;
 }
 
-.nav-brand span {
-  color: var(--primary-color);
-}
+
 
 .nav-brand:hover {
   text-decoration: none;
@@ -150,6 +152,16 @@ a:hover { text-decoration: underline; }
 .btn-outline:hover {
   background-color: var(--secondary-color);
 }
+
+.text-blue { color: var(--google-blue); }
+.text-red { color: var(--google-red); }
+.text-yellow { color: var(--google-yellow); }
+.text-green { color: var(--google-green); }
+
+.bg-blue { background-color: var(--google-blue); color: white; }
+.bg-red { background-color: var(--google-red); color: white; }
+.bg-yellow { background-color: var(--google-yellow); color: var(--text-dark); }
+.bg-green { background-color: var(--google-green); color: white; }
 
 /* Hero Section */
 .hero {
@@ -249,6 +261,11 @@ a:hover { text-decoration: underline; }
   justify-content: center;
   border-radius: 50%;
 }
+
+.card-icon.icon-blue { color: var(--google-blue); background: #E8F0FE; }
+.card-icon.icon-red { color: var(--google-red); background: #FCE8E6; }
+.card-icon.icon-yellow { color: var(--google-yellow); background: #FEF7E0; }
+.card-icon.icon-green { color: var(--google-green); background: #E6F4EA; }
 
 .card h3 {
   font-size: 1.25rem;
