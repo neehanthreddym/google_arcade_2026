@@ -1,5 +1,107 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.enrollmentConfig = {
+  code: "GCAF26-IN-FM4-SKN",
+  url: "https://rsvp.withgoogle.com/events/arcade-facilitator/",
+  opens: "2026-07-13T11:30:00Z",
+  closes: "2026-07-20T18:29:00Z",
+  ends: "2026-09-14T18:29:00Z",
+  manualStatusOverride: null // can be 'closed-early'
+};
+
+window.copyFacilitatorCode = function(btn) {
+  const code = window.enrollmentConfig.code;
+  const originalHtml = btn.innerHTML;
   
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(code).then(showCopied).catch(fallbackCopy);
+  } else {
+    fallbackCopy();
+  }
+
+  function fallbackCopy() {
+    const textArea = document.createElement("textarea");
+    textArea.value = code;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try { document.execCommand('copy'); showCopied(); } catch(err) {}
+    document.body.removeChild(textArea);
+  }
+
+  function showCopied() {
+    btn.innerHTML = `<i data-lucide="check" style="width: 18px; height: 18px;"></i> Copied`;
+    if (window.lucide) lucide.createIcons();
+    
+    let announcer = document.getElementById('aria-announcer');
+    if (!announcer) {
+      announcer = document.createElement('div');
+      announcer.id = 'aria-announcer';
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.style.cssText = 'position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;';
+      document.body.appendChild(announcer);
+    }
+    announcer.textContent = 'Facilitator code copied';
+    
+    if (typeof gtag === 'function') {
+      gtag('event', 'facilitator_code_copy');
+    }
+    
+    setTimeout(() => {
+      btn.innerHTML = originalHtml;
+      if (window.lucide) lucide.createIcons();
+      announcer.textContent = '';
+    }, 2000);
+  }
+};
+
+window.updateEnrollmentStatus = function() {
+  const now = new Date();
+  const opens = new Date(window.enrollmentConfig.opens);
+  const closes = new Date(window.enrollmentConfig.closes);
+  
+  let status = 'upcoming';
+  if (window.enrollmentConfig.manualStatusOverride) {
+    status = window.enrollmentConfig.manualStatusOverride;
+  } else if (now < opens) {
+    status = 'upcoming';
+  } else if (now >= opens && now < closes) {
+    if (closes.getTime() - now.getTime() <= 24 * 60 * 60 * 1000) {
+      status = 'closing-soon';
+    } else {
+      status = 'open';
+    }
+  } else if (now >= closes) {
+    status = 'closed';
+  }
+  
+  document.querySelectorAll('.enrollment-status-text').forEach(el => {
+    if (status === 'upcoming') el.textContent = 'Enrollment Opens Soon';
+    if (status === 'open') el.textContent = 'Enrollment Open';
+    if (status === 'closing-soon') el.textContent = 'Closing Soon';
+    if (status === 'closed') el.textContent = 'Enrollment Closed';
+    if (status === 'closed-early') el.textContent = 'Enrollment Closed — Seats Filled';
+  });
+  
+  document.querySelectorAll('.timeline-date').forEach(el => {
+    const dateStr = el.getAttribute('data-date');
+    if (dateStr && now >= new Date(dateStr)) {
+      el.classList.add('muted');
+    }
+  });
+
+  if (status === 'closed' || status === 'closed-early') {
+    document.querySelectorAll('.official-enrollment-btn').forEach(btn => {
+      // Need to replace the text but keep any icon structure if needed
+      if (btn.classList.contains('btn-secondary')) {
+        btn.innerHTML = 'View Official Program <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>';
+      } else {
+        btn.textContent = 'View Official Program';
+      }
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.updateEnrollmentStatus();
+
   // Mobile Menu Toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const navLinks = document.getElementById('nav-links');
@@ -10,42 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle Form Submissions (Mocking API for now)
-  const progressForm = document.getElementById('progress-form');
-  if (progressForm) {
-    progressForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('form-message').style.display = 'block';
-      progressForm.reset();
-      setTimeout(() => {
-        document.getElementById('form-message').style.display = 'none';
-      }, 5000);
-    });
-  }
-
-  const supportForm = document.getElementById('support-form');
-  if (supportForm) {
-    supportForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('support-message').style.display = 'block';
-      supportForm.reset();
-      setTimeout(() => {
-        document.getElementById('support-message').style.display = 'none';
-      }, 5000);
-    });
-  }
-
   // --- DATA DRIVEN RENDERERS ---
 
   // 1. Resources Data & Logic
   const resourcesData = [
+    { title: "Facilitator ’26 Enrollment", desc: "Official enrollment, eligibility, timeline, points, syllabus, FAQs, and program updates for Google Cloud Arcade Facilitator ’26.", link: "https://rsvp.withgoogle.com/events/arcade-facilitator/", type: "Official", badge: "badge-official", icon: "user-plus", secondaryLink: "index.html#enrollment-essentials", secondaryText: "View Our Team Code" },
     { title: "Google Cloud Skills Boost", desc: "Official platform to complete labs, learning paths, and skill badges.", link: "https://www.cloudskillsboost.google/", type: "Official", badge: "badge-official", icon: "cloud" },
     { title: "Google Cloud Arcade", desc: "Official Arcade page for games, points, activities, and program updates.", link: "https://go.qwiklabs.com/arcade", type: "Official", badge: "badge-official", icon: "gamepad-2" },
-    { title: "Make Profile Public", desc: "Step-by-step guide to make your profile visible for progress tracking.", link: "#", type: "Guide", badge: "badge-guide", icon: "user-check" },
     { title: "Beginner Cloud Basics", desc: "Start here if you are new to cloud computing and Google Cloud.", link: "#", type: "Beginner", badge: "badge-easy", icon: "book-open" },
     { title: "Skill Badge Guide", desc: "Learn how skill badges work and how to complete labs effectively.", link: "#", type: "Skill Badges", badge: "badge-medium", icon: "award" },
     { title: "Common Lab Issues", desc: "Fix common lab errors, quota issues, and verification problems.", link: "support.html", type: "Troubleshooting", badge: "badge-hard", icon: "alert-triangle" },
-    { title: "Submit Monthly Progress", desc: "Share your profile link and completed activities with facilitators.", link: "progress.html", type: "Progress", badge: "badge-tool", icon: "upload-cloud" },
     { title: "Join WhatsApp", desc: "Connect with facilitators and peers through WhatsApp community.", link: "https://chat.whatsapp.com/CqkoPc8doUv74MNkBmzTaD", type: "Community", badge: "badge-community", icon: "message-circle" },
     { title: "Join Telegram", desc: "Connect with facilitators and peers through Telegram group.", link: "https://t.me/googlearcadeplayers", type: "Community", badge: "badge-community", icon: "send" }
   ];
@@ -70,7 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="badge ${res.badge}" style="width: fit-content; margin-bottom: 1rem;">${res.type}</span>
         <h3 style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="${res.icon}" style="color: var(--primary-color);"></i> ${res.title}</h3>
         <p>${res.desc}</p>
-        <a href="${res.link}" ${res.link.startsWith('http') ? 'target="_blank"' : ''} class="btn btn-outline" style="border: 1px solid var(--border-color); color: var(--text-dark); padding: 0.5rem 1rem; border-radius: var(--radius-sm); text-align: center; margin-top: auto;">View Resource</a>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+          <a href="${res.link}" ${res.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-outline" style="border: 1px solid var(--border-color); color: var(--text-dark); padding: 0.5rem 1rem; border-radius: var(--radius-sm); text-align: center;" onclick="${res.link.startsWith('http') ? "if(typeof gtag === 'function') gtag('event', 'official_program_resource_click');" : ""}">${res.link.startsWith('http') ? 'View Official Program' : 'View Resource'}</a>
+          ${res.secondaryLink ? `<a href="${res.secondaryLink}" style="text-align: center; font-size: 0.9rem; color: var(--primary-color); text-decoration: none;">${res.secondaryText}</a>` : ''}
+        </div>
       `;
       resourcesGrid.appendChild(card);
     });
@@ -110,46 +189,73 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. FAQs Data & Logic
   const faqData = [
     {
-      category: "Getting Started",
-      icon: "rocket",
+      category: "Key Dates and Enrollment",
+      icon: "calendar",
       questions: [
-        { q: "Who can join this community?", a: "Anyone interested in learning Google Cloud through the Arcade program. This community is facilitated by Neehanth and Jashwanth." },
-        { q: "Is prior cloud experience required?", a: "No! The first month focuses on onboarding and beginner basics. We will guide you step-by-step." },
-        { q: "How do I make my profile public?", a: "Go to your Google Cloud Skills Boost settings, navigate to the Profile tab, and click 'Make Profile Public'." }
+        { q: "When does Facilitator ’26 enrollment open?", a: "Enrollment opens on July 13, 2026 at 5:00 PM IST." },
+        { q: "When does enrollment close?", a: "Enrollment closes on July 20, 2026 at 11:59 PM IST, or earlier if available seats fill." },
+        { q: "Can enrollment close before July 20?", a: "Yes, enrollment may close early if all available seats are filled. We recommend enrolling as soon as possible." },
+        { q: "When does the program end?", a: "The program officially ends on September 14, 2026 at 11:59 PM IST." },
+        { q: "Where can I find the official enrollment form?", a: "The official enrollment form is available on the <a href='https://rsvp.withgoogle.com/events/arcade-facilitator/' target='_blank' rel='noopener noreferrer'>official program website</a>." }
       ]
     },
     {
-      category: "Arcade Activities",
+      category: "Facilitator referral code",
+      icon: "tag",
+      questions: [
+        { q: "What is our facilitator team code?", a: "Our facilitator team code is <code>GCAF26-IN-FM4-SKN</code>. Enter it in the facilitator referral-code field while completing the official enrollment form.<br><br><button class='btn btn-secondary' style='padding: 0.25rem 0.75rem; font-size: 0.9rem;' onclick='window.copyFacilitatorCode(this)'><i data-lucide='copy' style='width: 16px; height: 16px;'></i> Copy Code</button>" },
+        { q: "Where do I enter the facilitator code?", a: "Enter it in the specific 'Facilitator Referral Code' field when you are filling out the official Google Cloud Arcade Facilitator ’26 enrollment form." },
+        { q: "Can I enroll without a facilitator code?", a: "Yes. Participants without a referral code may be assigned to a facilitator team later by the official program organizers." },
+        { q: "What happens if I forget to enter the code?", a: "If you forget the code, you might miss out on our community-specific support or tracking. However, official Google communications and the official program website take priority." },
+        { q: "Does using the code guarantee rewards or milestones?", a: "No. Entering the code links the participant to our facilitator team, but using the code does not guarantee enrollment, milestones, points, rewards, or prizes." }
+      ]
+    },
+    {
+      category: "Google Skills account and public profile",
+      icon: "user",
+      questions: [
+        { q: "Do I need a Google Cloud Skills Boost account?", a: "Yes, an active account is required to participate in the labs and earn badges." },
+        { q: "How do I make my profile public?", a: "Go to your account settings, navigate to the Profile tab, and enable 'Make Profile Public'. This allows your badges and progress to be verified." }
+      ]
+    },
+    {
+      category: "Credits and enrollment email",
+      icon: "mail",
+      questions: [
+        { q: "How do I get credits for labs?", a: "Upon successful enrollment and participating in Arcade events, you receive no-cost credits to complete the hands-on labs." },
+        { q: "I haven't received my enrollment email. What should I do?", a: "Check your spam or promotions folder. If it's still missing, ensure your account email is correct on the Skills Boost platform." }
+      ]
+    },
+    {
+      category: "Arcade games and skill badges",
       icon: "gamepad-2",
       questions: [
-        { q: "What is Google Cloud Arcade?", a: "It's a gamified learning platform where you play games to learn cloud skills and earn digital badges." },
-        { q: "What are skill badges?", a: "Skill badges are digital credentials issued by Google Cloud that prove your ability to solve real-world problems using cloud tools." },
-        { q: "How do I complete monthly Arcade activities?", a: "Follow our Monthly Roadmap. We curate the best games and labs for you to focus on each week." }
+        { q: "What are Arcade games?", a: "They are monthly learning challenges consisting of multiple labs covering various Google Cloud technologies." },
+        { q: "How do skill badges work?", a: "Skill badges are digital credentials you earn by completing specific quests and passing a challenge lab." }
       ]
     },
     {
-      category: "Progress Tracking",
-      icon: "trending-up",
+      category: "Points, milestones, and rewards",
+      icon: "award",
       questions: [
-        { q: "How do I submit my progress?", a: "Use the Progress Tracker page on this website to submit your public profile link and report completed badges." },
-        { q: "Why should my Skills Boost profile be public?", a: "A public profile allows facilitators to verify your completed badges and provide support if you are stuck." },
-        { q: "What if my completed badge does not appear?", a: "Sometimes it takes up to 24 hours. If it still doesn't appear, ensure you have a public profile and have completed all labs in the quest." }
+        { q: "How do I earn points?", a: "You earn points by completing Arcade games, trivia, and skill badges. Points accumulate over the program duration." },
+        { q: "When do I get my rewards?", a: "Rewards are distributed based on milestones reached at the end of the program cycle. The official program page will outline the specific point tiers." }
       ]
     },
     {
-      category: "Points and Rewards",
-      icon: "gift",
+      category: "Technical and account problems",
+      icon: "alert-circle",
       questions: [
-        { q: "Are rewards guaranteed?", a: "No. Rewards depend on official program rules, availability, and point thresholds. Please check official Google Cloud sources." },
-        { q: "Where do I check official points?", a: "Your official points will be communicated by the Google Cloud Arcade team via email. Our community tracker is only for support." }
+        { q: "A lab is broken or won't start. What do I do?", a: "End the lab, wait a few minutes, and restart. If the issue persists, contact Google Cloud Skills Boost support directly through the platform." },
+        { q: "My badge isn't showing up on my profile.", a: "It can take up to 24 hours for a badge to appear. Ensure your profile is public." }
       ]
     },
     {
-      category: "Community and Support",
-      icon: "life-buoy",
+      category: "Community and facilitator support",
+      icon: "users",
       questions: [
-        { q: "Where can I ask questions?", a: "Join our WhatsApp or Telegram groups. These are the fastest ways to get answers." },
-        { q: "What should I do if a lab is not working?", a: "Take a screenshot of the error, note the step you are on, and submit a question in the Support page or community group." }
+        { q: "How do facilitators help?", a: "Facilitators guide you through the learning process, help unblock you when stuck, and share regular program updates." },
+        { q: "Where can I ask questions?", a: "Join our official WhatsApp and Telegram communities for the fastest response from facilitators and peers." }
       ]
     }
   ];
@@ -182,17 +288,20 @@ document.addEventListener('DOMContentLoaded', () => {
           const accordion = document.createElement('div');
           accordion.className = 'accordion';
           accordion.innerHTML = `
-            <div class="accordion-header">
+            <button class="accordion-header" aria-expanded="false" aria-controls="content-${totalQuestionsRendered}" id="header-${totalQuestionsRendered}" style="width: 100%; text-align: left; background: none; border: none; font-family: inherit; font-size: 1rem;">
               ${item.q}
               <i data-lucide="chevron-down"></i>
-            </div>
-            <div class="accordion-content">
+            </button>
+            <div class="accordion-content" id="content-${totalQuestionsRendered}" role="region" aria-labelledby="header-${totalQuestionsRendered}">
               <p style="padding-top: 1rem; margin: 0;">${item.a}</p>
             </div>
           `;
           
           // Add click event for toggle
-          accordion.querySelector('.accordion-header').addEventListener('click', () => {
+          const headerBtn = accordion.querySelector('.accordion-header');
+          headerBtn.addEventListener('click', () => {
+            const isExpanded = headerBtn.getAttribute('aria-expanded') === 'true';
+            headerBtn.setAttribute('aria-expanded', !isExpanded);
             accordion.classList.toggle('active');
           });
 

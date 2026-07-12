@@ -22,9 +22,6 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="get-started.html">Get Started</a></li>
-        <li><a href="roadmap.html">Roadmap</a></li>
-        <li><a href="progress.html">Progress</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="faqs.html">FAQs</a></li>
         <li><a href="support.html">Support</a></li>
@@ -40,30 +37,23 @@
       <p>A facilitator-led learning space to help participants get started, follow monthly Arcade goals, complete skill badges, and stay consistent with Google Cloud learning.</p>
       
       <div class="hero-buttons">
-        <a href="get-started.html" class="btn btn-primary">
-          Get Started <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
-        </a>
-        <a href="support.html#community" class="btn btn-secondary">
+        <a href="support.html#community" class="btn btn-primary">
           <i data-lucide="users" style="width: 18px; height: 18px;"></i> Join Community
         </a>
-        <a href="progress.html" class="btn btn-secondary">
-          <i data-lucide="upload-cloud" style="width: 18px; height: 18px;"></i> Submit Progress
+        <a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary official-enrollment-btn">
+          Official Enrollment <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
         </a>
       </div>
 
       <!-- Status Strip -->
       <div class="status-strip">
         <div class="status-item">
-          <i data-lucide="calendar" style="width: 16px; height: 16px; color: var(--google-blue)"></i>
-          Month: <span>July-2026</span>
+          <i data-lucide="activity" style="width: 16px; height: 16px; color: var(--google-blue)"></i>
+          Status: <span class="enrollment-status-text">Enrollment Opens Soon</span>
         </div>
         <div class="status-item">
-          <i crossOrigin data-lucide="target" style="width: 16px; height: 16px; color: var(--google-red)"></i>
-          Focus: <span>Onboarding + Beginner Games</span>
-        </div>
-        <div class="status-item">
-          <i data-lucide="bell" style="width: 16px; height: 16px; color: var(--google-yellow)"></i>
-          Next Check-in: <span>July 7, 2026</span>
+          <i crossOrigin data-lucide="calendar" style="width: 16px; height: 16px; color: var(--google-red)"></i>
+          Program: <span>July 13–September 14</span>
         </div>
         <div class="status-item">
           <i data-lucide="message-circle" style="width: 16px; height: 16px; color: var(--google-green)"></i>
@@ -73,37 +63,99 @@
     </div>
   </header>
 
+  <!-- Enrollment Essentials -->
+  <section class="section" id="enrollment-essentials">
+    <div class="container entrance-animate">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="badge badge-easy enrollment-status-text" style="margin-bottom: 1rem; font-size: 0.9rem;">Enrollment Opens Soon</span>
+        <h2>Enrollment Essentials</h2>
+        <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto;">Everything you need to join the official Facilitator ’26 program through our facilitator team.</p>
+      </div>
+      
+      <div class="enrollment-essentials-grid">
+        <!-- Team Code Card -->
+        <div class="card" style="display: flex; flex-direction: column;">
+          <h3>Facilitator Team Code</h3>
+          <p style="color: var(--text-gray); margin-bottom: 0;">Enter this code in the official enrollment form to be associated with our facilitator team and receive community guidance throughout the program.</p>
+          
+          <div class="code-panel">
+            GCAF26-IN-FM4-SKN
+          </div>
+          
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="window.copyFacilitatorCode(this)" aria-label="Copy Facilitator Team Code">
+              <i data-lucide="copy" style="width: 18px; height: 18px;"></i> Copy Code
+            </button>
+            <a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer" class="btn btn-primary official-enrollment-btn">
+              Open Official Enrollment
+            </a>
+          </div>
+          
+          <p style="color: var(--text-gray); font-size: 0.85rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+            Using the facilitator code does not guarantee enrollment, milestones, points, rewards, or prizes.
+          </p>
+        </div>
+
+        <!-- Key Dates Card -->
+        <div class="card">
+          <h3>Key Dates</h3>
+          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+            
+            <div class="timeline-date" data-date="2026-07-13T11:30:00Z" style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="background: #e8f0fe; color: var(--google-blue); padding: 0.5rem; border-radius: 50%;">
+                <i data-lucide="calendar" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div>
+                <strong style="display: block;">Enrollment Opens</strong>
+                <time datetime="2026-07-13T11:30:00Z" style="color: var(--text-gray); font-size: 0.95rem;">July 13, 2026 at 5:00 PM IST</time>
+              </div>
+            </div>
+
+            <div class="timeline-date" data-date="2026-07-20T18:29:00Z" style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="background: #fce8e6; color: var(--google-red); padding: 0.5rem; border-radius: 50%;">
+                <i data-lucide="clock" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div>
+                <strong style="display: block;">Enrollment Closes</strong>
+                <time datetime="2026-07-20T18:29:00Z" style="color: var(--text-gray); font-size: 0.95rem;">July 20, 2026 at 11:59 PM IST</time>
+                <div style="font-size: 0.85rem; color: var(--text-gray); margin-top: 0.25rem;">Or earlier if available seats fill</div>
+              </div>
+            </div>
+
+            <div class="timeline-date" data-date="2026-09-14T18:29:00Z" style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="background: #e6f4ea; color: var(--google-green); padding: 0.5rem; border-radius: 50%;">
+                <i data-lucide="flag" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div>
+                <strong style="display: block;">Program Ends</strong>
+                <time datetime="2026-09-14T18:29:00Z" style="color: var(--text-gray); font-size: 0.95rem;">September 14, 2026 at 11:59 PM IST</time>
+              </div>
+            </div>
+
+          </div>
+          
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+            <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.5rem;">Dates and availability are governed by the official program website.</p>
+            <a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer" style="font-size: 0.9rem; font-weight: 500; color: var(--primary-color); text-decoration: none;">Verify Official Details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Quick Actions -->
   <section class="section">
     <div class="container">
       <h2 style="text-align: center; margin-bottom: 3rem;">What do you want to do?</h2>
-      <div class="grid">
+      <div class="grid grid-cols-2">
         
         <div class="card">
           <div class="card-icon" style="background: #e8f0fe; color: var(--google-blue);">
             <i data-lucide="user-plus"></i>
           </div>
           <h3>New Participant?</h3>
-          <p>Create your account, make your Skills Boost profile public, and join the community.</p>
-          <a href="get-started.html" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">Start Setup</a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon" style="background: #fce8e6; color: var(--google-red);">
-            <i data-lucide="map"></i>
-          </div>
-          <h3>Already Joined?</h3>
-          <p>Follow this month’s roadmap and complete weekly Arcade goals.</p>
-          <a href="roadmap.html" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">View Roadmap</a>
-        </div>
-
-        <div class="card">
-          <div class="card-icon" style="background: #e6f4ea; color: var(--google-green);">
-            <i data-lucide="award"></i>
-          </div>
-          <h3>Completed Badges?</h3>
-          <p>Submit your public Skills Boost profile link for community progress tracking.</p>
-          <a href="progress.html" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">Submit Progress</a>
+          <p>Create your Google Skills Boost account, make your profile public, and check the official program page for Arcade enrollment details.</p>
+          <a href="faqs.html" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">Read FAQs</a>
         </div>
 
         <div class="card">
@@ -111,7 +163,7 @@
             <i data-lucide="life-buoy"></i>
           </div>
           <h3>Stuck in a Lab?</h3>
-          <p>Use the support format and get help from facilitators and peers.</p>
+          <p>Join our WhatsApp or Telegram groups to get help from facilitators and peers.</p>
           <a href="support.html" class="btn btn-secondary" style="margin-top: auto; justify-content: center;">Get Help</a>
         </div>
 
@@ -136,16 +188,6 @@
         </div>
 
         <div class="card" style="flex-direction: row; align-items: center; gap: 1.5rem; padding: 1.5rem;">
-          <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0; background: #fce8e6; color: var(--google-red);">
-            <i data-lucide="calendar-days"></i>
-          </div>
-          <div>
-            <h3 style="margin-bottom: 0.25rem;">Stay updated</h3>
-            <p style="margin-bottom: 0;">Follow our monthly roadmap to stay consistent with Arcade games, trivia, and skill badges.</p>
-          </div>
-        </div>
-
-        <div class="card" style="flex-direction: row; align-items: center; gap: 1.5rem; padding: 1.5rem;">
           <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0; background: #fef7e0; color: var(--google-yellow);">
             <i data-lucide="message-circle"></i>
           </div>
@@ -155,96 +197,11 @@
           </div>
         </div>
 
-        <div class="card" style="flex-direction: row; align-items: center; gap: 1.5rem; padding: 1.5rem;">
-          <div class="card-icon" style="margin-bottom: 0; flex-shrink: 0; background: #e6f4ea; color: var(--google-green);">
-            <i data-lucide="trending-up"></i>
-          </div>
-          <div>
-            <h3 style="margin-bottom: 0.25rem;">Track progress</h3>
-            <p style="margin-bottom: 0;">Stay motivated with regular milestones, progress reminders, and community shoutouts.</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Roadmap Preview & Progress CTA -->
-  <section class="section">
-    <div class="container grid grid-cols-2">
-      
-      <!-- Roadmap Preview -->
-      <div class="card">
-        <span class="badge badge-official" style="width: fit-content; margin-bottom: 1rem;">Current Month</span>
-        <h2 style="margin-bottom: 0.5rem;">July 2026 Roadmap</h2>
-        <p style="margin-bottom: 2rem;">Beginner-friendly goals to help you start strong.</p>
-        
-        <div class="roadmap-timeline" style="gap: 1.5rem;">
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
-            <div style="font-weight: 500;">Onboarding and Account Setup</div>
-          </div>
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
-            <div style="font-weight: 500;">Beginner Arcade Games</div>
-          </div>
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
-            <div style="font-weight: 500;">Skill Badge Completion</div>
-          </div>
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--secondary-color); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">4</div>
-            <div style="font-weight: 500;">Progress Check & Doubt Clearing</div>
-          </div>
-        </div>
-        
-        <a href="roadmap.html" class="btn btn-outline" style="margin-top: 2.5rem; text-align: center; display: block; border: 1px solid var(--border-color); padding: 0.75rem; border-radius: var(--radius-md); font-weight: 600; color: var(--text-dark);">View Full Roadmap</a>
-      </div>
 
-      <!-- Progress CTA & Updates -->
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-        
-        <!-- Progress CTA -->
-        <div class="card" style="background: var(--gradient-blue); color: white; border: none;">
-          <h2 style="color: white;">Submit Your Progress</h2>
-          <p style="color: rgba(255,255,255,0.9);">Share your public Skills Boost profile link and monthly completion details so facilitators can support your progress.</p>
-          <div style="display: flex; gap: 1rem; margin-top: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-            <a href="progress.html" class="btn" style="background: white; color: var(--primary-color);">Submit Progress</a>
-            <a href="resources.html" class="btn" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">View Tracking Guide</a>
-          </div>
-          <div style="font-size: 0.8rem; opacity: 0.8; font-family: 'Inter', sans-serif;">
-            <strong>Disclaimer:</strong> Community tracking is for support purposes only. Official points and rewards must be verified through official sources.
-          </div>
-        </div>
-
-        <!-- Latest Updates -->
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-            <h3 style="margin-bottom: 0;">Latest Updates</h3>
-            <span style="font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--text-gray);">last_updated: july-2026</span>
-          </div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-            <li style="border-left: 3px solid var(--google-blue); padding-left: 1rem;">
-              <div style="font-size: 0.85rem; color: var(--text-gray); font-weight: 500; margin-bottom: 0.25rem;">July 2026</div>
-              <div style="font-weight: 600;">Community website launched</div>
-              <div style="font-size: 0.9rem; color: var(--text-gray);">Welcome to the new hub for resources and support.</div>
-            </li>
-            <li style="border-left: 3px solid var(--google-green); padding-left: 1rem;">
-              <div style="font-size: 0.85rem; color: var(--text-gray); font-weight: 500; margin-bottom: 0.25rem;">July 2026</div>
-              <div style="font-weight: 600;">Onboarding checklist added</div>
-              <div style="font-size: 0.9rem; color: var(--text-gray);">Check the Get Started page for the required setup steps.</div>
-            </li>
-            <li style="border-left: 3px solid var(--google-yellow); padding-left: 1rem;">
-              <div style="font-size: 0.85rem; color: var(--text-gray); font-weight: 500; margin-bottom: 0.25rem;">July 2026</div>
-              <div style="font-weight: 600;">First progress check reminder</div>
-              <div style="font-size: 0.9rem; color: var(--text-gray);">Please submit your public profile links by Sunday.</div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="footer">
@@ -262,9 +219,6 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="get-started.html">Get Started</a></li>
-            <li><a href="roadmap.html">Monthly Roadmap</a></li>
-            <li><a href="progress.html">Submit Progress</a></li>
             <li><a href="resources.html">Resources</a></li>
           </ul>
         </div>
@@ -280,8 +234,9 @@
         <div class="footer-col">
           <h4>Official Links</h4>
           <ul>
-            <li><a href="https://www.cloudskillsboost.google/" target="_blank">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
-            <li><a href="https://go.qwiklabs.com/arcade" target="_blank">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer">Facilitator ’26 Official Program <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://www.cloudskillsboost.google/" target="_blank" rel="noopener noreferrer">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://go.qwiklabs.com/arcade" target="_blank" rel="noopener noreferrer">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
           </ul>
         </div>
       </div>
@@ -293,6 +248,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/community-popup.js"></script>
   <script>
     lucide.createIcons();
   </script>

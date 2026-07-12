@@ -21,9 +21,6 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="get-started.html">Get Started</a></li>
-        <li><a href="roadmap.html">Roadmap</a></li>
-        <li><a href="progress.html">Progress</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="faqs.html">FAQs</a></li>
         <li><a href="support.html" class="active">Support</a></li>
@@ -32,7 +29,7 @@
   </nav>
 
   <!-- Page Hero -->
-  <header class="page-hero hero-red">
+  <header class="page-hero hero-green">
     <div class="container">
       <span class="page-hero-label">Contact Us</span>
       <h1>Support & Help</h1>
@@ -43,9 +40,9 @@
   <!-- Main Content -->
   <section class="section section-light">
     <div class="container">
-      <div class="grid" style="grid-template-columns: 1fr 1.5fr; gap: 3rem;">
+      <div class="grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto; gap: 2rem;">
         
-        <!-- Left Column: Support Info -->
+        <!-- Support Info -->
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
           
           <div class="card" id="community" style="background: var(--gradient-blue); color: white; border: none;">
@@ -61,6 +58,14 @@
             </div>
           </div>
 
+          <!-- Enrollment Help -->
+          <div class="enrollment-strip">
+            <div class="enrollment-strip-header">
+              <i data-lucide="info" style="color: var(--google-blue);"></i> Need Enrollment Help?
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 0; color: var(--text-gray);">If you're having trouble enrolling with our facilitator code, please post a screenshot of your issue in the Telegram group. Do not submit personal details via any forms.</p>
+            <a href="index.html#enrollment-essentials" class="btn btn-secondary" style="width: fit-content; padding: 0.5rem 1rem; font-size: 0.9rem;">View Enrollment Steps</a>
+          </div>
           <div class="card" style="padding: 1.5rem;">
             <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;"><i data-lucide="check-square" style="color: var(--google-green);"></i> Before Asking for Help</h3>
             <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; color: var(--text-gray); font-size: 0.95rem;">
@@ -72,17 +77,7 @@
             </ul>
           </div>
 
-          <div class="card" style="padding: 1.5rem;">
-            <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;"><i data-lucide="help-circle" style="color: var(--google-blue);"></i> Support Categories</h3>
-            <ul style="padding-left: 1.5rem; color: var(--text-gray); font-size: 0.95rem;">
-              <li>Onboarding help</li>
-              <li>Lab issue</li>
-              <li>Skill badge question</li>
-              <li>Progress tracking</li>
-              <li>Community issue</li>
-              <li>Event question</li>
-            </ul>
-          </div>
+
 
           <div class="card" style="padding: 1.5rem; background: #f8f9fa;">
             <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.1rem;"><i data-lucide="clock" style="color: var(--google-yellow);"></i> Expected Response</h3>
@@ -91,60 +86,7 @@
 
         </div>
 
-        <!-- Right Column: Support Form -->
-        <div class="card" style="height: fit-content;">
-          <form id="support-form">
-            <h2 style="margin-bottom: 1.5rem;">Submit a Support Request</h2>
-            
-            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div class="form-group" style="margin-bottom: 0;">
-                <label for="name" class="form-label">Full Name <span style="color: var(--google-red);">*</span></label>
-                <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
-              </div>
-              <div class="form-group" style="margin-bottom: 0;">
-                <label for="email" class="form-label">Email Address <span style="color: var(--google-red);">*</span></label>
-                <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
-              </div>
-            </div>
 
-            <div class="form-group" style="margin-top: 1.5rem;">
-              <label for="profile-link" class="form-label">Skills Boost Profile Link (If relevant)</label>
-              <input type="url" id="profile-link" name="profile-link" class="form-control" placeholder="https://www.cloudskillsboost.google/public_profiles/...">
-            </div>
-
-            <div class="form-group">
-              <label for="category" class="form-label">Support Category <span style="color: var(--google-red);">*</span></label>
-              <select id="category" name="category" class="form-control" required>
-                <option value="" disabled selected>Select a category</option>
-                <option value="onboarding">Onboarding help</option>
-                <option value="lab">Lab issue</option>
-                <option value="badge">Skill badge question</option>
-                <option value="progress">Progress tracking</option>
-                <option value="community">Community issue</option>
-                <option value="event">Event question</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message" class="form-label">Message Details <span style="color: var(--google-red);">*</span></label>
-              <textarea id="message" name="message" class="form-control" required placeholder="Please describe your issue in detail. Include lab names and steps where you are stuck."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="screenshot" class="form-label">Screenshot Upload (Optional)</label>
-              <input type="file" id="screenshot" name="screenshot" class="form-control" accept="image/*">
-            </div>
-
-            <div id="support-message" style="display: none; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; background: #e6f4ea; color: #137333; font-weight: 500;">
-              Your support request has been submitted. Please also check the community group for faster help if your issue is urgent.
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              Submit Support Request
-            </button>
-          </form>
-        </div>
 
       </div>
     </div>
@@ -166,9 +108,6 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="get-started.html">Get Started</a></li>
-            <li><a href="roadmap.html">Monthly Roadmap</a></li>
-            <li><a href="progress.html">Submit Progress</a></li>
             <li><a href="resources.html">Resources</a></li>
           </ul>
         </div>
@@ -184,8 +123,9 @@
         <div class="footer-col">
           <h4>Official Links</h4>
           <ul>
-            <li><a href="https://www.cloudskillsboost.google/" target="_blank">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
-            <li><a href="https://go.qwiklabs.com/arcade" target="_blank">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer">Facilitator ’26 Official Program <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://www.cloudskillsboost.google/" target="_blank" rel="noopener noreferrer">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://go.qwiklabs.com/arcade" target="_blank" rel="noopener noreferrer">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
           </ul>
         </div>
       </div>
