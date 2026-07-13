@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Resources Data & Logic
   const resourcesData = [
-    { title: "Facilitator ’26 Enrollment", desc: "Official enrollment, eligibility, timeline, points, syllabus, FAQs, and program updates for Google Cloud Arcade Facilitator ’26.", link: "https://rsvp.withgoogle.com/events/arcade-facilitator/", type: "Official", badge: "badge-official", icon: "user-plus", secondaryLink: "index.html#enrollment-essentials", secondaryText: "View Our Team Code" },
+    { title: "Facilitator '26 Enrollment", desc: "Official enrollment, eligibility, timeline, points, syllabus, FAQs, and program updates for Google Cloud Arcade Facilitator ’26.", link: "https://rsvp.withgoogle.com/events/arcade-facilitator/", type: "Official", badge: "badge-official", icon: "user-plus", secondaryLink: "index.html#enrollment-essentials", secondaryText: "View Our Team Code" },
     { title: "Google Cloud Skills Boost", desc: "Official platform to complete labs, learning paths, and skill badges.", link: "https://www.cloudskillsboost.google/", type: "Official", badge: "badge-official", icon: "cloud" },
     { title: "Google Cloud Arcade", desc: "Official Arcade page for games, points, activities, and program updates.", link: "https://go.cloudskillsboost.google/arcade", type: "Official", badge: "badge-official", icon: "gamepad-2" },
     { title: "Registration Prerequisites Guide", desc: "Arcade Facilitator Program 2026 Registration Prerequisites Guide.", link: "https://docs.google.com/document/d/1QrD8tF0AH4s8Vrg1OZjdss9XAqnDDC6QSxOpHzOxD6U/edit?usp=sharing", type: "Official", badge: "badge-official", icon: "file-text" },
