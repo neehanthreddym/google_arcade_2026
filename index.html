@@ -22,6 +22,7 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="facilitators.html">Facilitators</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="faqs.html">FAQs</a></li>
         <li><a href="support.html">Support</a></li>
@@ -74,24 +75,32 @@
       
       <div class="enrollment-essentials-grid">
         <!-- Team Code Card -->
-        <div class="card" style="display: flex; flex-direction: column;">
-          <h3>Facilitator Team Code</h3>
-          <p style="color: var(--text-gray); margin-bottom: 0;">Enter this code in the official enrollment form to be associated with our facilitator team and receive community guidance throughout the program.</p>
+        <div class="card fac-code-card" style="display: flex; flex-direction: column;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <h3 style="margin-bottom: 0;">Facilitator Team Code</h3>
+            <span class="badge" style="background: #E6F4EA; color: #188038; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+              <i data-lucide="info" style="width: 14px; height: 14px;"></i> USE DURING ENROLLMENT
+            </span>
+          </div>
+          <p style="color: var(--text-gray); margin-bottom: 1.5rem; margin-top: 0.5rem;">Enter this code in the <span style="font-weight: 700; color: #5F6368;">official enrollment form</span> to be associated with our facilitator team and receive community guidance throughout the program.</p>
           
-          <div class="code-panel">
-            GCAF26-IN-FM4-SKN
+          <div class="code-panel-container">
+            <div class="code-panel-blue">
+              <span class="code-text" id="fac-code-text">GCAF26-IN-FM4-SKN</span>
+              <button class="btn-copy-code" onclick="window.copyFacilitatorCodeNew(this)" aria-label="Copy Facilitator Team Code">
+                <i data-lucide="copy" class="copy-icon"></i> <span class="copy-text">Copy Code</span>
+              </button>
+            </div>
+            <div id="copy-live-region" aria-live="polite" class="sr-only"></div>
           </div>
           
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button class="btn btn-secondary" onclick="window.copyFacilitatorCode(this)" aria-label="Copy Facilitator Team Code">
-              <i data-lucide="copy" style="width: 18px; height: 18px;"></i> Copy Code
-            </button>
+          <div style="margin-top: 0.5rem;">
             <a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer" class="btn btn-primary official-enrollment-btn">
-              Open Official Enrollment
+              Open Official Enrollment <i data-lucide="external-link" class="external-link-icon"></i>
             </a>
           </div>
           
-          <p style="color: var(--text-gray); font-size: 0.85rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+          <p style="color: #6B7280; font-size: 0.85rem; margin-top: 1.5rem; border-top: 1px solid #E0E3E7; padding-top: 1rem; margin-bottom: 0;">
             Using the facilitator code does not guarantee enrollment, milestones, points, rewards, or prizes.
           </p>
         </div>
@@ -228,6 +237,7 @@
             <li><a href="faqs.html">FAQs</a></li>
             <li><a href="support.html">Contact Facilitators</a></li>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="facilitators.html">Meet the Facilitators</a></li>
             <li><a href="guidelines.html">Community Guidelines</a></li>
           </ul>
         </div>

@@ -1,8 +1,8 @@
 // js/community-popup.js
 const cmpConfig = {
   enabled: true,
-  homepageOnly: true,
-  delayMs: 3000,
+  homepageOnly: false,
+  delayMs: 1500,
   reminderIntervalMs: 24 * 60 * 60 * 1000, // 24 hours
   suppressionIntervalMs: 30 * 24 * 60 * 60 * 1000, // 30 days
   whatsappUrl: "https://chat.whatsapp.com/CqkoPc8doUv74MNkBmzTaD",

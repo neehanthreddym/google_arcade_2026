@@ -328,3 +328,108 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+window.copyFacilitatorCodeNew = function(btn) {
+  const codeText = "GCAF26-IN-FM4-SKN";
+  
+  navigator.clipboard.writeText(codeText).then(() => {
+    // Add copied class to button
+    btn.classList.add("copied");
+    
+    // Spawn celebration animation
+    spawnCopyParticles(btn);
+    
+    // Change icon to check
+    const iconEl = btn.querySelector(".copy-icon");
+    if (iconEl) {
+      iconEl.setAttribute("data-lucide", "check");
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+    
+    // Change text to Copied
+    const textEl = btn.querySelector(".copy-text");
+    if (textEl) {
+      textEl.textContent = "Copied";
+    }
+    
+    // Announce to screen readers
+    const liveRegion = document.getElementById("copy-live-region");
+    if (liveRegion) {
+      liveRegion.textContent = "Facilitator code copied";
+    }
+    
+    // Reset after 2 seconds
+    setTimeout(() => {
+      btn.classList.remove("copied");
+      
+      if (iconEl) {
+        iconEl.setAttribute("data-lucide", "copy");
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }
+      
+      if (textEl) {
+        textEl.textContent = "Copy Code";
+      }
+      
+      if (liveRegion) {
+        liveRegion.textContent = "";
+      }
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy text: ', err);
+  });
+};
+
+function spawnCopyParticles(btn) {
+  // Respect reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const btnRect = btn.getBoundingClientRect();
+  const particleCount = 60;
+  const colors = ['#4285F4', '#34A853', '#FBBC05', '#EA4335'];
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'copy-particle';
+    
+    // Randomize colors, size, and starting position slightly
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 6 + 4; // 4px to 10px
+    const startX = btnRect.width / 2 + (Math.random() * 20 - 10);
+    const startY = btnRect.height / 2 + (Math.random() * 10 - 5);
+    
+    // Randomize trajectory
+    const tx = (Math.random() - 0.5) * 800; // -250px to 250px
+    const ty = (Math.random() - 1) * 800;   // -500px to 0px
+    
+    particle.style.cssText = `
+      position: absolute;
+      left: ${startX}px;
+      top: ${startY}px;
+      width: ${size}px;
+      height: ${size}px;
+      background: ${color};
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 100;
+      --tx: ${tx}px;
+      --ty: ${ty}px;
+      animation: copyParticleAnim 1s ease-out forwards;
+    `;
+    
+    // Make sure button has position relative if not already handled in CSS
+    btn.style.position = 'relative';
+    btn.appendChild(particle);
+    
+    // Clean up
+    setTimeout(() => {
+      particle.remove();
+    }, 1000);
+  }
+}
