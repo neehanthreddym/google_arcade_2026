@@ -118,9 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const resourcesData = [
     { title: "Facilitator ’26 Enrollment", desc: "Official enrollment, eligibility, timeline, points, syllabus, FAQs, and program updates for Google Cloud Arcade Facilitator ’26.", link: "https://rsvp.withgoogle.com/events/arcade-facilitator/", type: "Official", badge: "badge-official", icon: "user-plus", secondaryLink: "index.html#enrollment-essentials", secondaryText: "View Our Team Code" },
     { title: "Google Cloud Skills Boost", desc: "Official platform to complete labs, learning paths, and skill badges.", link: "https://www.cloudskillsboost.google/", type: "Official", badge: "badge-official", icon: "cloud" },
-    { title: "Google Cloud Arcade", desc: "Official Arcade page for games, points, activities, and program updates.", link: "https://go.qwiklabs.com/arcade", type: "Official", badge: "badge-official", icon: "gamepad-2" },
-    { title: "Beginner Cloud Basics", desc: "Start here if you are new to cloud computing and Google Cloud.", link: "#", type: "Beginner", badge: "badge-easy", icon: "book-open" },
-    { title: "Skill Badge Guide", desc: "Learn how skill badges work and how to complete labs effectively.", link: "#", type: "Skill Badges", badge: "badge-medium", icon: "award" },
+    { title: "Google Cloud Arcade", desc: "Official Arcade page for games, points, activities, and program updates.", link: "https://go.cloudskillsboost.google/arcade", type: "Official", badge: "badge-official", icon: "gamepad-2" },
+    { title: "Registration Prerequisites Guide", desc: "Arcade Facilitator Program 2026 Registration Prerequisites Guide.", link: "https://docs.google.com/document/d/1QrD8tF0AH4s8Vrg1OZjdss9XAqnDDC6QSxOpHzOxD6U/edit?usp=sharing", type: "Official", badge: "badge-official", icon: "file-text" },
+    { title: "Skill Badge Guide", desc: "View the official Facilitator '26 syllabus, eligible Skill Badges, Arcade games, and completion requirements.", link: "https://rsvp.withgoogle.com/events/arcade-facilitator/syllabus", type: "Skill Badges", badge: "badge-medium", icon: "award", buttonText: "View Official Syllabus" },
     { title: "Common Lab Issues", desc: "Fix common lab errors, quota issues, and verification problems.", link: "support.html", type: "Troubleshooting", badge: "badge-hard", icon: "alert-triangle" },
     { title: "Join WhatsApp", desc: "Connect with facilitators and peers through WhatsApp community.", link: "https://chat.whatsapp.com/CqkoPc8doUv74MNkBmzTaD", type: "Community", badge: "badge-community", icon: "message-circle" },
     { title: "Join Telegram", desc: "Connect with facilitators and peers through Telegram group.", link: "https://t.me/googlearcadeplayers", type: "Community", badge: "badge-community", icon: "send" }
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3 style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="${res.icon}" style="color: var(--primary-color);"></i> ${res.title}</h3>
         <p>${res.desc}</p>
         <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
-          <a href="${res.link}" ${res.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-outline" style="border: 1px solid var(--border-color); color: var(--text-dark); padding: 0.5rem 1rem; border-radius: var(--radius-sm); text-align: center;" onclick="${res.link.startsWith('http') ? "if(typeof gtag === 'function') gtag('event', 'official_program_resource_click');" : ""}">${res.link.startsWith('http') ? 'View Official Program' : 'View Resource'}</a>
+          <a href="${res.link}" ${res.link.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-outline" style="border: 1px solid var(--border-color); color: var(--text-dark); padding: 0.5rem 1rem; border-radius: var(--radius-sm); text-align: center;" onclick="${res.link.startsWith('http') ? "if(typeof gtag === 'function') gtag('event', 'official_program_resource_click');" : ""}">${res.buttonText || (res.link.startsWith('http') ? 'View Official Program' : 'View Resource')}</a>
           ${res.secondaryLink ? `<a href="${res.secondaryLink}" style="text-align: center; font-size: 0.9rem; color: var(--primary-color); text-decoration: none;">${res.secondaryText}</a>` : ''}
         </div>
       `;
@@ -325,6 +325,250 @@ document.addEventListener('DOMContentLoaded', () => {
         renderFAQs(faqData, e.target.value.toLowerCase());
       });
     }
+  }
+
+  // 3. Swags Data & Logic
+  window.swagConfig = {
+    currentSeason: "2026",
+    verificationDate: "July 13, 2026",
+    announcementStatus: "Pending",
+    tiers2026: {
+      trooper: { min: 50, max: 74, capacity: 6000 },
+      ranger: { min: 75, max: 94, capacity: 4000 },
+      champion: { min: 95, max: 119, capacity: 3000 },
+      legend: { min: 120, max: null, capacity: 2500 }
+    },
+    officialSourceTier: "https://discuss.google.dev/t/google-skills-arcade-2026-tiers/371066",
+    officialSourceWaterfall: "https://discuss.google.dev/t/google-skills-arcade-2026-prize-counter-update/347189"
+  };
+
+  const swagsData = [
+    {
+      id: "trooper-backpack-2025",
+      name: "Trooper Backpack",
+      season: "2025",
+      announcementDate: "December 26, 2025",
+      tiers: ["Trooper"],
+      description: "A practical everyday backpack with organized storage, comfortable straps, and subtle Google Cloud styling.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-trooper-backpack/300389",
+      icon: "backpack"
+    },
+    {
+      id: "arcade-magnets-2025",
+      name: "Arcade Magnets",
+      season: "2025",
+      announcementDate: "December 22, 2025",
+      tiers: ["Novice", "Trooper"],
+      description: "A collection of Google Skills Arcade-themed magnets celebrating participants’ learning milestones.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-magnets/299029",
+      icon: "magnet"
+    },
+    {
+      id: "legend-backpack-2025",
+      name: "Legend Backpack",
+      season: "2025",
+      announcementDate: "December 19, 2025",
+      tiers: ["Legend"],
+      description: "A protective travel backpack featuring a padded laptop compartment, wide opening, lock, and charging slot.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-legend-backpack/298441",
+      icon: "briefcase"
+    },
+    {
+      id: "diy-logo-2025",
+      name: "Google Cloud DIY Logo",
+      season: "2025",
+      announcementDate: "December 17, 2025",
+      tiers: ["Ranger", "Champion", "Legend"],
+      description: "A buildable Google Cloud logo set containing more than 450 pieces for desk or shelf display.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-google-cloud-diy-logo/297749",
+      icon: "box"
+    },
+    {
+      id: "sticker-sheet-2025",
+      name: "Arcade Sticker Sheet",
+      season: "2025",
+      announcementDate: "December 10, 2025",
+      tiers: ["Novice", "Trooper"],
+      description: "A sheet of pixel-art stickers inspired by the Google Skills Arcade learning journey.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-sticker-sheet/295887",
+      icon: "sticker"
+    },
+    {
+      id: "tumbler-lantern-2025",
+      name: "Tumbler LED Lantern",
+      season: "2025",
+      announcementDate: "November 28, 2025",
+      tiers: ["Ranger", "Champion", "Legend"],
+      description: "A self-righting desk lantern with dimmable warm lighting and an RGB lighting mode.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-tumbler-led-lantern/291961",
+      icon: "lightbulb"
+    },
+    {
+      id: "dry-fit-tshirt-2025",
+      name: "Dry-Fit T-Shirt",
+      season: "2025",
+      announcementDate: "November 19, 2025",
+      tiers: ["Novice", "Trooper"],
+      description: "A lightweight, breathable, moisture-wicking Arcade T-shirt offered in multiple sizes.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-dry-fit-t-shirt/288919",
+      icon: "shirt"
+    },
+    {
+      id: "laptop-sleeve-2025",
+      name: "Laptop Sleeve",
+      season: "2025",
+      announcementDate: "November 12, 2025",
+      tiers: ["Ranger", "Champion", "Legend"],
+      description: "A protective laptop sleeve with a built-in stand, accessories organizer, handle, and mouse-pad closure.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-laptop-sleeve/286273",
+      icon: "monitor"
+    },
+    {
+      id: "refresh-bottle-2025",
+      name: "Refresh Water Bottle",
+      season: "2025",
+      announcementDate: "November 4, 2025",
+      tiers: ["Novice", "Trooper"],
+      description: "A 500 ml insulated stainless-steel bottle designed to keep drinks hot or cold.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-refresh-water-bottle/283341",
+      icon: "droplet"
+    },
+    {
+      id: "hoodie-2025",
+      name: "Arcade Hoodie",
+      season: "2025",
+      announcementDate: "October 21, 2025",
+      tiers: ["Champion", "Legend"],
+      description: "A navy-blue pullover hoodie announced for the Champion and Legend tiers.",
+      officialSource: "https://discuss.google.dev/t/the-most-awaited-swag-drop-in-2025/276774",
+      icon: "shirt"
+    },
+    {
+      id: "pen-duo-2025",
+      name: "Arcade Pen Duo",
+      season: "2025",
+      announcementDate: "October 17, 2025",
+      tiers: ["Ranger", "Champion", "Legend"],
+      description: "A pair of updated metal writing instruments: the Executive Click Pen and Focus Pen.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-pen-duo/274906",
+      icon: "pen-tool"
+    },
+    {
+      id: "usb-hub-2025",
+      name: "Arcade USB Hub",
+      season: "2025",
+      announcementDate: "October 13, 2025",
+      tiers: ["Ranger", "Champion", "Legend"],
+      description: "A compact multiport USB hub with USB-A, USB-C, audio, SD, and TF card connectivity.",
+      officialSource: "https://discuss.google.dev/t/swag-drop-the-arcade-usb-hub/273056",
+      icon: "usb"
+    }
+  ];
+
+  const swagsGrid = document.getElementById('swags-grid');
+  const swagSearch = document.getElementById('swag-search');
+  const swagFilterBtns = document.querySelectorAll('.swag-filter-btn');
+  const swagResultsCount = document.getElementById('swag-results-count');
+
+  function renderSwags(data) {
+    if (!swagsGrid) return;
+    swagsGrid.innerHTML = '';
+    
+    if (data.length === 0) {
+      swagsGrid.innerHTML = '<p style="color: var(--text-gray); grid-column: 1/-1; text-align: center;">No historical rewards found matching your criteria.</p>';
+      if (swagResultsCount) swagResultsCount.textContent = 'Showing 0 historical rewards';
+      return;
+    }
+
+    if (swagResultsCount) swagResultsCount.textContent = `Showing ${data.length} historical reward${data.length === 1 ? '' : 's'}`;
+
+    data.forEach(swag => {
+      const card = document.createElement('div');
+      card.className = 'card swag-card';
+      card.style.position = 'relative';
+      card.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+      card.style.display = 'flex';
+      card.style.flexDirection = 'column';
+      card.style.height = '100%';
+      
+      card.onmouseenter = () => { card.style.transform = 'translateY(-2px)'; card.style.boxShadow = '0 6px 12px rgba(0,0,0,0.1)'; };
+      card.onmouseleave = () => { card.style.transform = 'translateY(0)'; card.style.boxShadow = 'var(--shadow-sm)'; };
+
+      const tierBadges = swag.tiers.map(t => `<span class="badge" style="font-size: 0.75rem; background: var(--bg-white); color: var(--text-gray); border: 1px solid var(--border-color); padding: 0.15rem 0.5rem;">${t}</span>`).join('');
+
+      card.innerHTML = `
+        <div style="background: var(--bg-light); border-radius: var(--radius-sm); height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; position: relative;">
+          <div style="position: absolute; top: 0.5rem; left: 0.5rem;">
+            <span class="badge" style="background: var(--google-yellow); color: #000; font-size: 0.7rem; font-weight: bold;">2025 ARCHIVE</span>
+          </div>
+          <i data-lucide="${swag.icon || 'gift'}" style="width: 64px; height: 64px; color: var(--border-color);"></i>
+        </div>
+        <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3 style="margin: 0; font-size: 1.1rem; color: var(--text-dark);">${swag.name}</h3>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-gray); margin-bottom: 0.75rem;"><i data-lucide="calendar" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i> Announced: ${swag.announcementDate}</p>
+        <div style="display: flex; gap: 0.25rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          ${tierBadges}
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-dark); flex-grow: 1;">${swag.description}</p>
+        <div style="margin-top: 1rem;">
+          <a href="${swag.officialSource}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; justify-content: center; font-size: 0.9rem; border: 1px solid var(--border-color); color: var(--text-dark);" onclick="if(typeof gtag === 'function') gtag('event', 'historical_swag_source_clicked');">
+            View Official Announcement <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+          </a>
+        </div>
+      `;
+      swagsGrid.appendChild(card);
+    });
+    
+    if(window.lucide) { lucide.createIcons(); }
+  }
+
+  function filterSwags() {
+    if (!swagsGrid) return;
+    const searchTerm = swagSearch ? swagSearch.value.toLowerCase() : '';
+    const activeFilterBtn = document.querySelector('.swag-filter-btn.active');
+    const filterType = activeFilterBtn ? activeFilterBtn.dataset.filter : 'all';
+
+    const filtered = swagsData.filter(swag => {
+      const matchesSearch = swag.name.toLowerCase().includes(searchTerm) || swag.description.toLowerCase().includes(searchTerm);
+      let matchesFilter = true;
+      if (filterType !== 'all') {
+        if (filterType === 'novice-trooper') {
+          matchesFilter = swag.tiers.includes('Novice') || swag.tiers.includes('Trooper');
+        } else {
+          matchesFilter = swag.tiers.map(t => t.toLowerCase()).includes(filterType);
+        }
+      }
+      return matchesSearch && matchesFilter;
+    });
+
+    renderSwags(filtered);
+  }
+
+  if (swagsGrid) {
+    renderSwags(swagsData);
+    if(typeof gtag === 'function') {
+      gtag('event', 'swag_page_view');
+    }
+    
+    if (swagSearch) {
+      swagSearch.addEventListener('input', filterSwags);
+    }
+    
+    swagFilterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        swagFilterBtns.forEach(b => {
+          b.setAttribute('aria-pressed', 'false');
+          b.classList.remove('active');
+        });
+        e.target.setAttribute('aria-pressed', 'true');
+        e.target.classList.add('active');
+        if(typeof gtag === 'function') {
+          gtag('event', 'swag_filter_selected', { 'filter': e.target.dataset.filter });
+        }
+        filterSwags();
+      });
+    });
   }
 
 });
