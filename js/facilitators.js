@@ -6,8 +6,9 @@ const facilitators = [
     bio: "Neehanth is an AI and data professional with an M.S. in Data Science from the University of Memphis. He supports participants with enrollment guidance, Google Skills profiles, cloud and AI learning resources, and technical questions.",
     photo: "assets/images/neehanth_headhsot.jpg",
     initials: "NM",
-    linkedin: "", // Placeholder until provided
-    contact: "", // Placeholder until provided
+    linkedin: "https://www.linkedin.com/in/neehanthreddy",
+    x: "https://x.com/NeehanthReddyM",
+    whatsapp: "https://wa.me/918520072947",
     supportAreas: [
       "Enrollment and facilitator-code guidance",
       "Google Skills profile setup",
@@ -28,8 +29,8 @@ const facilitators = [
     bio: "Jashwanth is a data and AI professional and developer-community organizer at Florida Atlantic University. He supports participant onboarding, community coordination, program communication, and hands-on cloud learning.",
     photo: "assets/images/jashwanth_headshot.png",
     initials: "JD",
-    linkedin: "", // Placeholder until provided
-    contact: "", // Placeholder until provided
+    linkedin: "https://www.linkedin.com/in/jashwanthdasari2001",
+    whatsapp: "https://wa.me/919063998345",
     supportAreas: [
       "Participant onboarding",
       "Program announcements and community coordination",
@@ -56,18 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
       : `<div class="fac-initials">${fac.initials}</div>`;
 
     // Determine Links
-    const linkedinBtn = fac.linkedin
-      ? `<a href="${fac.linkedin}" target="_blank" rel="noopener noreferrer" class="btn btn-fac-contact btn-equal" aria-label="View LinkedIn for ${fac.name}"><i data-lucide="linkedin"></i> View LinkedIn</a>`
-      : ``;
+    let socialsHtml = '<div class="fac-socials" style="display: flex; gap: 1rem; margin-top: 1.5rem; justify-content: center; width: 100%;">';
+    if (fac.linkedin) socialsHtml += `<a href="${fac.linkedin}" target="_blank" rel="noopener noreferrer" style="color: #0A66C2; transition: transform 0.2s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>`;
+    if (fac.x) socialsHtml += `<a href="${fac.x}" target="_blank" rel="noopener noreferrer" style="color: #000000; transition: transform 0.2s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="X (Twitter)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="lucide lucide-x"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>`;
+    if (fac.whatsapp) socialsHtml += `<a href="${fac.whatsapp}" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: transform 0.2s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>`;
+    socialsHtml += '</div>';
 
-    let contactBtn = '';
-    if (fac.contact) {
-      contactBtn = `<a href="${fac.contact}" class="btn btn-fac-contact btn-equal" aria-label="Contact ${fac.name}"><i data-lucide="mail"></i> Contact Facilitator</a>`;
-    } else {
-      contactBtn = `<a href="support.html" class="btn btn-fac-contact btn-equal" aria-label="Ask in Community"><i data-lucide="message-circle"></i> Ask in Community</a>`;
-    }
-
-    const buttonsHtml = `<div class="fac-actions">${linkedinBtn}${contactBtn}</div>`;
+    const buttonsHtml = `${socialsHtml}`;
 
     // Render support areas
     const supportHtml = fac.supportAreas.map(item => `<li><i data-lucide="check" class="fac-icon"></i>${item}</li>`).join('');
