@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-50V207D4XV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-50V207D4XV');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Points Calculator - Arcade Community Hub</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        ☁️ <span class="text-gradient">Google Arcade 2026</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="facilitators.html">Facilitators</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="points-calculator.html" class="active nav-calc-btn" style="background: var(--google-blue); color: white; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 4px; box-shadow: var(--shadow-sm); transition: all 0.2s;"><i data-lucide="calculator" style="width: 16px; height: 16px;"></i> Points Calculator</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="swags.html">Swags</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero hero-blue">
+    <div class="container">
+      <span class="page-hero-label">Community Tool</span>
+      <h1>Arcade Points Calculator</h1>
+      <p>Estimate your Facilitator ’26 progress from your public Google Skills profile badges, with a manual calculator fallback.</p>
+    </div>
+  </header>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid var(--google-yellow);">
+        <h3 style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="shield-alert" style="color: var(--google-yellow);"></i> Community Estimate Disclaimer</h3>
+        <p style="margin-bottom: 0;">This calculator is a <strong>community-generated estimate</strong>. It is not an official Google points tracker and does not determine rewards, prizes, or eligibility. Always verify final status on official Google channels.</p>
+      </div>
+
+      <div class="grid grid-cols-2" style="align-items: start;">
+        <div class="card">
+          <h3>1) Profile URL</h3>
+          <p>Enter your <strong>public</strong> Google Skills profile URL to attempt automatic badge extraction.</p>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="profile-url">Google Skills profile URL</label>
+            <input class="form-control" type="url" id="profile-url" placeholder="https://www.cloudskillsboost.google/public_profiles/...">
+          </div>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button id="run-profile-check" class="btn btn-primary" type="button"><i data-lucide="search" style="width: 18px; height: 18px;"></i> Estimate from Profile</button>
+            <button id="show-manual" class="btn btn-secondary" type="button">Use Manual Calculator</button>
+          </div>
+          <p id="profile-status" style="margin-top: 1rem; margin-bottom: 0; font-size: 0.9rem;"></p>
+        </div>
+
+        <div class="card" id="manual-calculator">
+          <h3>Manual Calculator</h3>
+          <p>If profile extraction fails, enter your counts manually.</p>
+          <div class="form-group">
+            <label class="form-label" for="manual-game-badges">Arcade Game badges</label>
+            <input class="form-control" type="number" min="0" step="1" id="manual-game-badges" value="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="manual-skill-badges">Skill badges</label>
+            <input class="form-control" type="number" min="0" step="1" id="manual-skill-badges" value="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="manual-bonus-points">Optional bonus milestone points</label>
+            <input class="form-control" type="number" min="0" step="1" id="manual-bonus-points" value="0">
+          </div>
+          <button id="run-manual-calc" class="btn btn-secondary" type="button"><i data-lucide="calculator" style="width: 18px; height: 18px;"></i> Calculate Manually</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h3>Detected Badge Classification</h3>
+        <p style="margin-bottom: 1rem;">Badges are grouped into Arcade Game, Skill Badge, Outside Cohort, Excluded, and Needs Review.</p>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+          <div style="padding: 1rem; border-radius: var(--radius-md); background: #e8f0fe;"><strong id="count-game">0</strong><br>Arcade Game</div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); background: #e6f4ea;"><strong id="count-skill">0</strong><br>Skill Badge</div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); background: #fef7e0;"><strong id="count-outside">0</strong><br>Outside Cohort</div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); background: #fce8e6;"><strong id="count-excluded">0</strong><br>Excluded</div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); background: #f3e8fd;"><strong id="count-review">0</strong><br>Needs Review</div>
+        </div>
+        <div id="review-items" style="margin-top: 1rem; color: var(--text-gray); font-size: 0.95rem;">No uncertain badges yet.</div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h3>Estimated Points Breakdown</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div style="padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong>Base Arcade Points</strong>
+            <p style="margin: 0.5rem 0 0;" id="base-points">0</p>
+            <p style="margin: 0.25rem 0 0; font-size: 0.85rem; color: var(--text-gray);" id="base-formula">Arcade Game + floor(Skill / 2)</p>
+          </div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong>Highest Milestone</strong>
+            <p style="margin: 0.5rem 0 0;" id="highest-milestone">Not reached yet</p>
+          </div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong>Potential Milestone Bonus</strong>
+            <p style="margin: 0.5rem 0 0;" id="milestone-bonus">0</p>
+          </div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong>Optional Bonus Milestone Points</strong>
+            <p style="margin: 0.5rem 0 0;" id="optional-bonus">0</p>
+          </div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong>Total Estimated Points</strong>
+            <p style="margin: 0.5rem 0 0;" id="total-points">0</p>
+          </div>
+          <div style="padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <strong>Progress to Next Milestone</strong>
+            <p style="margin: 0.5rem 0 0;" id="next-milestone">Need 50 points to reach Trooper (50).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h3>Flow & Assumptions</h3>
+        <ol style="padding-left: 1.1rem; color: var(--text-gray);">
+          <li>User enters public Google Skills profile URL and URL format is validated.</li>
+          <li>Community service attempts to read publicly visible badges.</li>
+          <li>Badges are filtered to Facilitator ’26 cohort dates (July 13 to September 14, 2026).</li>
+          <li>Badges are classified by title heuristics and uncertain items are flagged for review.</li>
+          <li>Base points are computed as: <code>Arcade Game + floor(Skill Badges / 2)</code>.</li>
+          <li>Milestone estimates use community thresholds: Trooper 50, Ranger 75, Champion 95, Legend 120.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        <strong>Disclaimer:</strong> Arcade Hub is an independent, facilitator-led community website. It is not an official Google website. Reward names, images, tiers, point requirements, availability, eligibility, fulfillment, and delivery are controlled by the official Google Skills Arcade program and may change. Always verify current information through official Google sources.
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Arcade Hub</h4>
+          <p style="color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1rem;">A community learning space maintained by facilitators.</p>
+          <p style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--text-gray);">Last updated: July 2026</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="swags.html">Swags</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community & Support</h4>
+          <ul>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="support.html">Contact Facilitators</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="facilitators.html">Meet the Facilitators</a></li>
+            <li><a href="guidelines.html">Community Guidelines</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Official Links</h4>
+          <ul>
+            <li><a href="https://rsvp.withgoogle.com/events/arcade-facilitator/" target="_blank" rel="noopener noreferrer">Facilitator ’26 Official Program <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://www.cloudskillsboost.google/" target="_blank" rel="noopener noreferrer">Google Cloud Skills Boost <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+            <li><a href="https://go.cloudskillsboost.google/arcade" target="_blank" rel="noopener noreferrer">Google Cloud Arcade <i data-lucide="external-link" style="width: 14px; height: 14px; display: inline; vertical-align: text-bottom;"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Arcade Cloud Community Hub. Facilitated by Neehanth Reddy Maramreddy and Jashwanth Dasari.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/points-calculator.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
